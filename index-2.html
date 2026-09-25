@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#090909">
+<title>Dragon Sports — Unleash Your Game</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:#070707;color:#fff;font-family:Inter,Arial,sans-serif}
+button,input,select{font:inherit}
+button{cursor:pointer}
+body:before{
+  content:"";position:fixed;inset:0;z-index:-2;
+  background:linear-gradient(90deg,rgba(0,0,0,.97),rgba(0,0,0,.82),rgba(0,0,0,.94)),url("dragon-logo.png") center/cover fixed no-repeat;
+}
+body:after{content:"";position:fixed;inset:0;z-index:-1;background:radial-gradient(circle at 50% 0%,rgba(220,0,0,.18),transparent 42%)}
+.container{width:min(1180px,calc(100% - 28px));margin:auto}
+header{position:sticky;top:0;z-index:50;background:rgba(7,7,7,.92);backdrop-filter:blur(14px);border-bottom:1px solid #292929}
+.header{height:76px;display:flex;align-items:center;gap:14px}
+.logo{width:68px;height:48px;border-radius:10px;object-fit:cover;object-position:center;box-shadow:0 0 20px rgba(255,0,0,.25)}
+.brand{font-weight:900;font-size:18px;letter-spacing:.8px;white-space:nowrap}
+.brand small{display:block;color:#aaa;font-size:9px;letter-spacing:2px;margin-top:2px}
+.nav{display:flex;gap:4px;overflow:auto;margin-left:auto}
+.nav button{background:transparent;color:#ddd;border:0;padding:10px 11px;border-radius:10px;white-space:nowrap}
+.nav button:hover,.nav button.active{background:#26090b;color:#fff}
+.menu{display:none;background:#171717;border:1px solid #333;color:#fff;border-radius:10px;padding:10px 13px}
+.hero{margin:22px 0;border:1px solid #4b1114;border-radius:24px;overflow:hidden;min-height:410px;background:
+linear-gradient(90deg,rgba(0,0,0,.95) 0%,rgba(0,0,0,.65) 48%,rgba(0,0,0,.15) 100%),
+url("dragon-logo.png") center/cover no-repeat;display:flex;align-items:center}
+.hero-content{padding:46px;max-width:680px}
+.kicker{color:#ff4242;font-size:12px;font-weight:900;letter-spacing:3px}
+h1{font-size:clamp(38px,7vw,72px);line-height:.96;margin:12px 0}
+.hero p{color:#ddd;font-size:17px;line-height:1.6}
+.btn{border:1px solid #363636;background:#171717;color:#fff;border-radius:11px;padding:12px 16px;font-weight:800}
+.btn.red{background:linear-gradient(135deg,#ff1e2d,#8f0008);border-color:#ff404a}
+.btn:hover{transform:translateY(-1px)}
+.section{padding:28px 0}
+.section-head{display:flex;justify-content:space-between;align-items:end;gap:10px;margin-bottom:15px}
+.section h2{margin:0;font-size:27px}
+.muted{color:#999}
+.search{display:flex;gap:8px;margin:12px 0 18px}
+.search input{flex:1;min-width:0;background:#111;border:1px solid #333;color:#fff;border-radius:11px;padding:13px 14px}
+.sports{display:grid;grid-template-columns:repeat(8,1fr);gap:10px}
+.sport{background:linear-gradient(145deg,#191919,#0e0e0e);border:1px solid #333;border-radius:14px;padding:15px 8px;text-align:center;transition:.2s}
+.sport:hover,.sport.active{border-color:#ff3038;background:linear-gradient(145deg,#2a090b,#111)}
+.sport .icon{font-size:27px;display:block;margin-bottom:8px}
+.sport b{font-size:12px}
+.products{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.card{background:rgba(15,15,15,.95);border:1px solid #2d2d2d;border-radius:16px;overflow:hidden}
+.card:hover{border-color:#5b2225}
+.pic{aspect-ratio:1/1;background:#222;position:relative}
+.pic img{width:100%;height:100%;object-fit:cover}
+.tag{position:absolute;left:9px;top:9px;background:#0c9d61;padding:6px 8px;border-radius:7px;font-size:10px;font-weight:900}
+.card-body{padding:13px}
+.card h3{font-size:14px;margin:5px 0 8px;min-height:38px}
+.meta{color:#999;font-size:11px}
+.price{font-size:19px;font-weight:900}
+.mrp{text-decoration:line-through;color:#777;font-size:12px;margin-left:5px}
+.stars{color:#ffd21f;font-size:12px}
+.card-actions{display:flex;gap:7px;margin-top:10px}
+.card-actions button{flex:1}
+.select{width:100%;background:#171717;border:1px solid #333;color:#fff;border-radius:9px;padding:9px;margin-top:9px}
+.color-row{display:flex;gap:6px;margin-top:9px}
+.color{width:23px;height:23px;border-radius:50%;border:2px solid #555}
+.color.selected{outline:2px solid #fff;outline-offset:1px}
+.empty{padding:30px;text-align:center;border:1px dashed #444;border-radius:14px;color:#999;grid-column:1/-1}
+footer{margin-top:50px;border-top:1px solid #292929;background:rgba(5,5,5,.9);padding:30px 0 90px}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:22px}
+footer h3{margin-top:0}
+footer p,footer li{color:#999;font-size:13px;line-height:1.7}
+footer ul{padding:0;list-style:none}
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.78);z-index:100;display:none;place-items:center;padding:15px}
+.modal.show{display:grid}
+.modal-box{width:min(600px,100%);background:#111;border:1px solid #3a3a3a;border-radius:18px;padding:20px;max-height:90vh;overflow:auto}
+.modal-head{display:flex;justify-content:space-between;align-items:center}
+.close{border:0;background:#222;color:#fff;border-radius:50%;width:36px;height:36px}
+.option{display:inline-block;padding:8px 12px;border:1px solid #444;background:#171717;color:#ddd;border-radius:8px;margin:5px 4px 0 0}
+.option.selected{border-color:#ff3038;background:#2b080a}
+.cart-list{display:grid;gap:10px;margin:15px 0}
+.cart-item{display:grid;grid-template-columns:70px 1fr auto;gap:10px;align-items:center;border-bottom:1px solid #292929;padding-bottom:10px}
+.cart-item img{width:70px;height:70px;object-fit:cover;border-radius:10px}
+.total{font-size:22px;font-weight:900;text-align:right;border-top:1px solid #333;padding-top:13px}
+@media(max-width:900px){
+  .nav{display:none}.menu{display:block;margin-left:auto}.header{height:68px}
+  .sports{grid-template-columns:repeat(4,1fr)}
+  .products{grid-template-columns:repeat(2,1fr)}
+  .footer-grid{grid-template-columns:1fr 1fr}
+  .hero-content{padding:32px}
+}
+@media(max-width:520px){
+  .container{width:min(100% - 18px,1180px)}
+  .logo{width:58px;height:43px}.brand{font-size:15px}
+  .hero{min-height:390px}.hero-content{padding:25px}
+  .hero p{font-size:14px}
+  .sports{grid-template-columns:repeat(4,1fr);gap:7px}.sport{padding:12px 4px}.sport .icon{font-size:23px}
+  .products{gap:9px}.card-body{padding:10px}.card h3{font-size:13px}
+  .btn{min-height:42px;padding:10px 12px}
+  .footer-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="container header">
+    <img class="logo" src="dragon-logo.png" alt="Dragon Sports">
+    <div class="brand">DRAGON SPORTS<small>UNLEASH YOUR GAME</small></div>
+    <nav class="nav" id="nav"></nav>
+    <button class="menu" onclick="toggleMenu()">☰</button>
+  </div>
+</header>
+
+<main class="container">
+  <section class="hero">
+    <div class="hero-content">
+      <div class="kicker">DRAGON SPORTS</div>
+      <h1>UNLEASH<br>YOUR GAME.</h1>
+      <p>Sports dresses, equipment and accessories — organised by game, with mobile-friendly shopping and colour options.</p>
+      <button class="btn red" onclick="scrollToShop()">SHOP SPORTS</button>
+    </div>
+  </section>
+
+  <section class="section" id="shop">
+    <div class="section-head">
+      <div><h2>Choose Your Sport</h2><div class="muted">Tap a sport to see its dresses & equipment</div></div>
+    </div>
+    <div class="search">
+      <input id="search" placeholder="Search bat, ball, jersey, shoes, gloves..." oninput="renderProducts()">
+      <button class="btn" onclick="clearSearch()">Clear</button>
+    </div>
+    <div class="sports" id="sports"></div>
+  </section>
+
+  <section class="section">
+    <div class="section-head">
+      <div><h2 id="productTitle">Popular Sports Products</h2><div class="muted">Demo catalogue — ready for your real products and prices</div></div>
+    </div>
+    <div class="products" id="products"></div>
+  </section>
+</main>
+
+<footer>
+  <div class="container footer-grid">
+    <div>
+      <h3>DRAGON SPORTS</h3>
+      <p>Unleash Your Game. A mobile-first sports shopping website for dresses, equipment and accessories.</p>
+    </div>
+    <div><h3>Sports</h3><ul><li>Gym</li><li>Tennis</li><li>Volleyball</li><li>Kabaddi</li><li>Yoga</li></ul></div>
+    <div><h3>More</h3><ul><li>Cricket</li><li>Football</li><li>Badminton</li><li>Basketball</li><li>Boxing</li></ul></div>
+    <div><h3>Contact</h3><ul><li>Customer Care</li><li>Orders</li><li>Returns</li><li>Terms</li></ul></div>
+  </div>
+</footer>
+
+<div class="modal" id="modal" onclick="if(event.target===this)closeModal()">
+  <div class="modal-box" id="modalBox"></div>
+</div>
+
+<script>
+const IMG={
+ football:"https://images.unsplash.com/photo-1579952363873-27f3bade9f55?auto=format&fit=crop&w=800&q=85",
+ shoes:"https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=800&q=85",
+ cricket:"https://images.unsplash.com/photo-1531415074968-036ba1b575da?auto=format&fit=crop&w=800&q=85",
+ tennis:"https://images.unsplash.com/photo-1554068865-24cecd4e34b8?auto=format&fit=crop&w=800&q=85",
+ badminton:"https://images.unsplash.com/photo-1626224583764-f87db24ac4ea?auto=format&fit=crop&w=800&q=85",
+ gym:"https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&w=800&q=85",
+ yoga:"https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=800&q=85",
+ volley:"https://images.unsplash.com/photo-1612872087720-bb876e2e67d1?auto=format&fit=crop&w=800&q=85",
+ boxing:"https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?auto=format&fit=crop&w=800&q=85",
+ hockey:"https://images.unsplash.com/photo-1580748141549-71748dbe0a03?auto=format&fit=crop&w=800&q=85",
+ run:"https://images.unsplash.com/photo-1552674605-db6ffd4facb5?auto=format&fit=crop&w=800&q=85"
+};
+const sports=[
+ ["All","🏆"],["Gym","🏋️"],["Tennis","🎾"],["Volleyball","🏐"],["Kabaddi","🤼"],
+ ["Yoga","🧘"],["Cricket","🏏"],["Football","⚽"],["Badminton","🏸"],["Basketball","🏀"],["Boxing","🥊"],["More Games","🎯"]
+];
+const products=[
+ {id:1,s:"Gym",name:"Pro Training T-Shirt",type:"Sports Dress",img:IMG.gym,price:799,mrp:1299,colors:["#111","#e11","#1976d2","#fff"]},
+ {id:2,s:"Gym",name:"Adjustable Dumbbell Set",type:"Gym Equipment",img:IMG.gym,price:2499,mrp:3499,colors:["#111","#777"]},
+ {id:3,s:"Gym",name:"Training Gloves",type:"Gym Equipment",img:IMG.boxing,price:599,mrp:899,colors:["#111","#e11"]},
+ {id:4,s:"Tennis",name:"Pro Tennis Racket",type:"Equipment",img:IMG.tennis,price:3299,mrp:4999,colors:["#111","#0b7","#e11"]},
+ {id:5,s:"Tennis",name:"Tennis Match T-Shirt",type:"Sports Dress",img:IMG.shirt||IMG.tennis,price:999,mrp:1599,colors:["#fff","#111","#1976d2"]},
+ {id:6,s:"Volleyball",name:"Volleyball Match Jersey",type:"Sports Dress",img:IMG.volley,price:1099,mrp:1699,colors:["#fff","#e11","#111","#1976d2"]},
+ {id:7,s:"Volleyball",name:"Pro Volleyball",type:"Equipment",img:IMG.volley,price:1499,mrp:2199,colors:["#fff","#ffd21f"]},
+ {id:8,s:"Kabaddi",name:"Kabaddi Match Kit",type:"Sports Dress",img:IMG.boxing,price:1299,mrp:1899,colors:["#111","#e11","#1976d2"]},
+ {id:9,s:"Kabaddi",name:"Kabaddi Knee Support",type:"Equipment",img:IMG.boxing,price:499,mrp:799,colors:["#111","#444"]},
+ {id:10,s:"Yoga",name:"Premium Yoga Set",type:"Sports Dress",img:IMG.yoga,price:1199,mrp:1799,colors:["#111","#7b4ab8","#e88"]},
+ {id:11,s:"Yoga",name:"Yoga Mat",type:"Equipment",img:IMG.yoga,price:699,mrp:999,colors:["#111","#7b4ab8","#1a8"]},
+ {id:12,s:"Cricket",name:"English Willow Cricket Bat",type:"Cricket Bat",img:IMG.cricket,price:5499,mrp:7999,colors:["#d8b36a","#111"]},
+ {id:13,s:"Cricket",name:"Match Leather Ball",type:"Cricket Ball",img:IMG.cricket,price:799,mrp:1099,colors:["#b51220","#111"]},
+ {id:14,s:"Cricket",name:"Cricket Jersey",type:"Cricket Dress",img:IMG.cricket,price:999,mrp:1499,colors:["#fff","#0b3d91","#e11","#111"]},
+ {id:15,s:"Cricket",name:"Batting Gloves",type:"Cricket Equipment",img:IMG.cricket,price:1299,mrp:1899,colors:["#fff","#e11","#111"]},
+ {id:16,s:"Football",name:"Pro Football",type:"Equipment",img:IMG.football,price:1499,mrp:2299,colors:["#fff","#111","#e11"]},
+ {id:17,s:"Football",name:"Football Match Jersey",type:"Sports Dress",img:IMG.football,price:1099,mrp:1699,colors:["#fff","#111","#e11","#1976d2"]},
+ {id:18,s:"Football",name:"FG Football Boots",type:"Football Shoes",img:IMG.shoes,price:3299,mrp:4999,colors:["#111","#e11","#ffd21f"]},
+ {id:19,s:"Football",name:"Shin Guards",type:"Equipment",img:IMG.football,price:499,mrp:799,colors:["#111","#fff"]},
+ {id:20,s:"Badminton",name:"Carbon Racket",type:"Equipment",img:IMG.badminton,price:2999,mrp:4499,colors:["#111","#e11","#1976d2"]},
+ {id:21,s:"Badminton",name:"Badminton Jersey",type:"Sports Dress",img:IMG.badminton,price:899,mrp:1399,colors:["#fff","#111","#e11"]},
+ {id:22,s:"Basketball",name:"Basketball",type:"Equipment",img:IMG.football,price:1199,mrp:1799,colors:["#d96b22","#111"]},
+ {id:23,s:"Boxing",name:"Boxing Gloves",type:"Equipment",img:IMG.boxing,price:1499,mrp:2299,colors:["#111","#e11","#fff"]},
+ {id:24,s:"More Games",name:"Multi-Sport Training Shoes",type:"Sports Shoes",img:IMG.shoes,price:2499,mrp:3999,colors:["#111","#fff","#e11"]}
+];
+let active="All",cart=[];
+function nav(){
+ document.getElementById("nav").innerHTML=sports.slice(0,8).map(x=>`<button onclick="selectSport('${x[0]}')">${x[1]} ${x[0]}</button>`).join("");
+}
+function renderSports(){
+ document.getElementById("sports").innerHTML=sports.map(x=>`<button class="sport ${active===x[0]?'active':''}" onclick="selectSport('${x[0]}')"><span class="icon">${x[1]}</span><b>${x[0]}</b></button>`).join("");
+}
+function renderProducts(){
+ const q=document.getElementById("search").value.toLowerCase().trim();
+ let list=products.filter(p=>(active==="All"||p.s===active)&&(!q||(p.name+" "+p.type+" "+p.s).toLowerCase().includes(q)));
+ document.getElementById("productTitle").textContent=active==="All"?"Popular Sports Products":active+" Products";
+ document.getElementById("products").innerHTML=list.length?list.map(p=>card(p)).join(""):`<div class="empty">No products found. Try another search.</div>`;
+}
+function card(p){
+ return `<article class="card">
+  <div class="pic"><img src="${p.img}" alt="${p.name}" loading="lazy"><span class="tag">${p.type}</span></div>
+  <div class="card-body">
+   <div class="meta">${p.s}</div><h3>${p.name}</h3>
+   <div><span class="price">₹${p.price.toLocaleString("en-IN")}</span><span class="mrp">₹${p.mrp.toLocaleString("en-IN")}</span></div>
+   <div class="stars">★★★★★ <span class="meta">4.8</span></div>
+   <select class="select" id="size-${p.id}"><option>Select size / model</option><option>S</option><option>M</option><option>L</option><option>XL</option><option>Standard</option></select>
+   <div class="color-row">${p.colors.map((c,i)=>`<button class="color ${i===0?'selected':''}" style="background:${c}" onclick="pickColor(this)" aria-label="Color"></button>`).join("")}</div>
+   <div class="card-actions"><button class="btn" onclick="viewProduct(${p.id})">View</button><button class="btn red" onclick="addCart(${p.id})">Add to Cart</button></div>
+  </div>
+ </article>`;
+}
+function pickColor(el){el.parentElement.querySelectorAll(".color").forEach(x=>x.classList.remove("selected"));el.classList.add("selected")}
+function selectSport(s){active=s;renderSports();renderProducts();document.getElementById("shop").scrollIntoView({behavior:"smooth",block:"start"})}
+function clearSearch(){document.getElementById("search").value="";renderProducts()}
+function scrollToShop(){document.getElementById("shop").scrollIntoView({behavior:"smooth"})}
+function toggleMenu(){
+ const nav=document.getElementById("nav");
+ nav.style.display=nav.style.display==="flex"?"none":"flex";
+ nav.style.position="absolute";nav.style.top="68px";nav.style.left="9px";nav.style.right="9px";nav.style.background="#111";nav.style.padding="8px";nav.style.border="1px solid #333";nav.style.borderRadius="12px";nav.style.flexDirection="column";
+}
+function viewProduct(id){
+ const p=products.find(x=>x.id===id);
+ document.getElementById("modalBox").innerHTML=`<div class="modal-head"><h2>${p.name}</h2><button class="close" onclick="closeModal()">×</button></div>
+ <p class="muted">${p.s} • ${p.type}</p><img src="${p.img}" style="width:100%;max-height:280px;object-fit:cover;border-radius:12px">
+ <p>Premium sports product with multiple colour options. Replace the demo image, price and product details with your real catalogue later.</p>
+ <div><b>Colours</b><div>${p.colors.map((c,i)=>`<button class="option ${i===0?'selected':''}" onclick="this.parentElement.querySelectorAll('.option').forEach(x=>x.classList.remove('selected'));this.classList.add('selected')">Colour ${i+1}</button>`).join("")}</div></div>
+ <button class="btn red" style="width:100%;margin-top:15px" onclick="addCart(${p.id});closeModal()">Add to Cart</button>`;
+ document.getElementById("modal").classList.add("show");
+}
+function closeModal(){document.getElementById("modal").classList.remove("show")}
+function addCart(id){cart.push(id);openCart()}
+function openCart(){
+ const items=cart.map(id=>products.find(p=>p.id===id));
+ document.getElementById("modalBox").innerHTML=`<div class="modal-head"><h2>Your Cart (${items.length})</h2><button class="close" onclick="closeModal()">×</button></div>
+ <div class="cart-list">${items.length?items.map((p,i)=>`<div class="cart-item"><img src="${p.img}"><div><b>${p.name}</b><div class="muted">₹${p.price.toLocaleString("en-IN")}</div></div><button class="btn" onclick="cart.splice(${i},1);openCart()">Remove</button></div>`).join(""):`<p class="muted">Your cart is empty.</p>`}</div>
+ ${items.length?`<div class="total">Total: ₹${items.reduce((a,p)=>a+p.price,0).toLocaleString("en-IN")}</div><button class="btn red" style="width:100%;margin-top:14px" onclick="alert('Checkout page ready — connect your payment gateway here.')">Proceed to Checkout</button>`:""}`;
+ document.getElementById("modal").classList.add("show");
+}
+nav();renderSports();renderProducts();
+</script>
+</body>
+</html>
