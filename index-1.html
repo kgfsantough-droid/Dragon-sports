@@ -1,0 +1,400 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0a0a0a">
+<title>Dragon Sports — Unleash Your Game</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700;800;900&family=Noto+Sans+Tamil:wght@400;500;600;700;800;900&family=Noto+Sans+Devanagari:wght@400;500;600;700;800;900&display=swap');
+:root{--bg:#080808;--panel:#111;--panel2:#171717;--text:#f5f5f5;--muted:#aaa;--red:#e50914;--red2:#ff3b30;--yellow:#ffd21f;--green:#20c978;--blue:#3b82f6;--pink:#ff4d8d;--border:#292929;--shadow:0 12px 32px rgba(0,0,0,.35);--radius:18px}
+*{box-sizing:border-box}html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;overflow-x:hidden}body{margin:0;overflow-x:hidden;background:radial-gradient(circle at 20% 0%,#24080a 0,#080808 32%),var(--bg);color:var(--text);font-family:'Noto Sans',system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif;line-height:1.45}
+html[lang='ta'] body{font-family:'Noto Sans Tamil','Nirmala UI','Latha','Noto Sans',sans-serif}
+html[lang='hi'] body,html[lang='mr'] body{font-family:'Noto Sans Devanagari','Noto Sans',sans-serif}
+button,input,select,textarea{font:inherit}button{cursor:pointer}.hidden{display:none!important}.muted{color:var(--muted)}.container{width:min(1200px,calc(100% - 28px));margin:auto}
+header{position:sticky;top:0;z-index:50;background:rgba(8,8,8,.94);backdrop-filter:blur(14px);border-bottom:1px solid var(--border)}
+.topbar{height:74px;display:flex;align-items:center;gap:18px}.brand{display:flex;align-items:center;gap:10px;min-width:190px}.brand img{width:58px;height:46px;object-fit:cover;border-radius:10px}.brand strong{font-size:19px;letter-spacing:.5px}.brand span{display:block;font-size:10px;color:#bbb;letter-spacing:2px}
+.nav{display:flex;gap:6px;flex:1;overflow:auto}.nav button,.iconbtn{border:0;background:transparent;color:#ddd;padding:10px 12px;border-radius:10px;white-space:nowrap}.nav button:hover,.iconbtn:hover{background:#1c1c1c;color:#fff}
+.header-actions{display:flex;align-items:center;gap:5px}.iconbtn{position:relative;font-size:20px}.badge{position:absolute;top:1px;right:1px;min-width:17px;height:17px;border-radius:99px;background:var(--red);font-size:10px;display:grid;place-items:center;padding:0 4px}
+.hero{margin:22px 0;border:1px solid #3a1113;border-radius:28px;overflow:hidden;min-height:390px;background-image:linear-gradient(90deg,rgba(0,0,0,.92),rgba(0,0,0,.5),rgba(0,0,0,.15)),url('logo.png');background-size:cover;background-position:center;box-shadow:var(--shadow)}
+.hero-content{padding:64px 52px;max-width:680px}.eyebrow{color:#ff5252;font-weight:800;letter-spacing:3px;font-size:12px}.hero h1{font-size:clamp(40px,7vw,76px);line-height:.95;margin:12px 0}.hero p{font-size:18px;color:#ddd;max-width:560px}.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:22px}
+.btn{border:1px solid var(--border);background:#171717;color:#fff;border-radius:12px;padding:12px 18px;font-weight:800}.btn:hover{transform:translateY(-1px);border-color:#555}.btn.primary{background:linear-gradient(135deg,var(--red),#8e0008);border-color:#ff3038}.btn.yellow{background:var(--yellow);color:#111;border-color:#ffe35b}.btn.green{background:var(--green);color:#06150d}.btn.ghost{background:transparent}.btn.small{padding:8px 11px;font-size:12px}
+.section{margin:34px 0}.section-head{display:flex;justify-content:space-between;align-items:end;gap:10px;margin-bottom:16px}.section h2{margin:0;font-size:27px}.section-head button{color:#ff5555;background:none;border:0;font-weight:800}
+.chips{display:flex;gap:9px;overflow:auto;padding-bottom:4px}.chip{padding:9px 13px;background:#151515;border:1px solid var(--border);border-radius:99px;white-space:nowrap;color:#ddd}.chip:hover{border-color:#777}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}.card{background:linear-gradient(180deg,#151515,#0f0f0f);border:1px solid var(--border);border-radius:17px;overflow:hidden;position:relative;box-shadow:0 5px 18px rgba(0,0,0,.2)}.card:hover{border-color:#4a4a4a}.product-img{aspect-ratio:1/1;background:#222;position:relative;overflow:hidden}.product-img img{width:100%;height:100%;object-fit:cover;transition:.3s}.card:hover .product-img img{transform:scale(1.035)}.heart{position:absolute;right:9px;top:9px;width:37px;height:37px;border:1px solid #444;background:rgba(0,0,0,.6);border-radius:50%;color:#fff;font-size:18px}.heart.active{color:#ff4d70}.discount{position:absolute;left:9px;top:9px;background:#1ca56a;color:#fff;font-size:11px;padding:6px 8px;border-radius:8px;font-weight:900}.card-body{padding:13px}.brandline{font-size:11px;color:#999}.card h3{font-size:15px;margin:5px 0 7px;min-height:38px}.price{font-size:18px;font-weight:900}.mrp{text-decoration:line-through;color:#777;font-size:12px;margin-left:5px}.rating{color:#ffd21f;font-size:12px}.card-foot{display:flex;gap:7px;margin-top:11px}.card-foot .btn{flex:1}.stock{font-size:11px;color:#8be3b7;margin-top:6px}
+.category-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}.category{padding:18px;background:linear-gradient(135deg,#1b0b0d,#121212);border:1px solid var(--border);border-radius:15px;min-height:105px}.category b{display:block;margin-bottom:8px}.category small{color:#999}
+.brands{display:flex;gap:10px;flex-wrap:wrap}.brand-pill{padding:12px 17px;background:#151515;border:1px solid var(--border);border-radius:12px}
+.page{padding:28px 0 90px}.toolbar{display:flex;gap:9px;flex-wrap:wrap;align-items:center;margin:14px 0}.searchbox{flex:1;min-width:240px;display:flex;background:#151515;border:1px solid var(--border);border-radius:12px;overflow:hidden}.searchbox input{flex:1;background:transparent;border:0;color:#fff;padding:12px}.searchbox button{background:transparent;color:#ddd;border:0;padding:0 12px}.select{background:#151515;color:#fff;border:1px solid var(--border);padding:11px;border-radius:11px}.filter-panel{display:flex;gap:8px;flex-wrap:wrap;padding:12px;background:#111;border:1px solid var(--border);border-radius:14px;margin-bottom:15px}.filter-panel label{font-size:11px;color:#999;display:flex;flex-direction:column;gap:5px}.filter-panel select,.filter-panel input{min-width:120px;background:#181818;color:#fff;border:1px solid #333;border-radius:8px;padding:8px}
+.detail{display:grid;grid-template-columns:1.05fr 1fr;gap:28px}.gallery{display:grid;grid-template-columns:82px 1fr;gap:12px}.thumbs{display:flex;flex-direction:column;gap:9px}.thumbs img{width:80px;height:80px;object-fit:cover;border-radius:10px;border:2px solid transparent;cursor:pointer}.thumbs img.active{border-color:var(--red)}.mainpic{border-radius:18px;overflow:hidden;background:#151515;min-height:500px}.mainpic img{width:100%;height:100%;object-fit:cover}.detail h1{font-size:38px;margin:8px 0}.bigprice{font-size:32px;font-weight:950;margin:15px 0}.detail-box{padding:14px;background:#111;border:1px solid var(--border);border-radius:13px;margin:13px 0}.option-row{display:flex;gap:8px;flex-wrap:wrap}.option{padding:10px 14px;border:1px solid #3a3a3a;background:#171717;color:#ddd;border-radius:9px}.option.active{border-color:var(--red);background:#2a0809}.qty{display:flex;align-items:center;gap:10px}.qty button{width:36px;height:36px;border-radius:9px;border:1px solid #333;background:#181818;color:#fff}.review{padding:14px;border-bottom:1px solid #2b2b2b}.review:last-child{border:0}
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.78);z-index:100;display:grid;place-items:center;padding:15px}.modal-card{width:min(720px,100%);max-height:92vh;overflow:auto;background:#111;border:1px solid #383838;border-radius:20px;padding:22px}.modal-head{display:flex;justify-content:space-between;align-items:center}.close{border:0;background:#222;color:#fff;width:36px;height:36px;border-radius:50%}
+.form{display:grid;gap:11px}.form input,.form textarea,.form select{width:100%;padding:12px;border:1px solid #333;background:#181818;color:#fff;border-radius:10px}.two{display:grid;grid-template-columns:1fr 1fr;gap:10px}.checkout-steps{display:flex;gap:7px;overflow:auto;margin:10px 0 20px}.step{padding:8px 12px;background:#181818;border:1px solid #333;border-radius:99px;white-space:nowrap;font-size:12px}.step.active{background:#2a0809;border-color:var(--red)}
+.cart-row{display:grid;grid-template-columns:90px 1fr auto;gap:13px;padding:14px 0;border-bottom:1px solid #292929;align-items:center}.cart-row img{width:90px;height:90px;object-fit:cover;border-radius:12px}.cart-actions{display:flex;gap:6px;align-items:center;flex-wrap:wrap}.summary{background:#111;border:1px solid var(--border);border-radius:17px;padding:18px;position:sticky;top:92px}.sumline{display:flex;justify-content:space-between;margin:10px 0}.total{font-size:24px;font-weight:900;border-top:1px solid #333;padding-top:14px}
+.account-grid{display:grid;grid-template-columns:230px 1fr;gap:15px}.side-menu{background:#111;border:1px solid var(--border);border-radius:15px;padding:8px;height:max-content}.side-menu button{display:block;width:100%;text-align:left;background:transparent;color:#ccc;border:0;padding:12px;border-radius:9px}.side-menu button.active,.side-menu button:hover{background:#211012;color:#fff}
+.order{background:#111;border:1px solid var(--border);border-radius:15px;padding:15px;margin-bottom:11px}.statusbar{display:grid;grid-template-columns:repeat(5,1fr);gap:5px;margin:15px 0}.statusbar div{font-size:10px;text-align:center;color:#777;padding:8px 3px;border-top:3px solid #333}.statusbar .done{color:#fff;border-color:var(--green)}
+.admin-stat{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.stat{padding:18px;border-radius:15px;background:#121212;border:1px solid var(--border)}.stat b{font-size:27px;display:block;margin-top:6px}.tablewrap{overflow:auto;border:1px solid var(--border);border-radius:14px}.table{width:100%;border-collapse:collapse}.table th,.table td{padding:10px;border-bottom:1px solid #292929;text-align:left;font-size:12px;white-space:nowrap}
+.mobile-menu{position:fixed;inset:0;z-index:120;background:rgba(0,0,0,.7);backdrop-filter:blur(5px)}
+.mobile-menu-card{position:absolute;right:0;top:0;bottom:0;width:min(330px,88vw);background:#0e0e0e;border-left:1px solid #333;padding:18px;overflow:auto;box-shadow:-12px 0 35px rgba(0,0,0,.5)}
+.mobile-menu-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:15px;font-size:17px}
+.mobile-menu-card>button{display:block;width:100%;text-align:left;border:0;border-bottom:1px solid #262626;background:transparent;color:#eee;padding:15px 5px;font-size:15px}
+.mobile-language{display:grid;gap:7px;color:#aaa;font-size:12px;padding-top:18px}
+.mobile-language select{background:#181818;color:#fff;border:1px solid #333;border-radius:9px;padding:11px}
+@media(min-width:721px){.mobile-menu{display:none!important}}
+.bottomnav{display:none;position:fixed;bottom:0;left:0;right:0;z-index:60;background:#0c0c0cf5;border-top:1px solid #333;padding:7px}.bottomnav button{flex:1;background:none;border:0;color:#aaa;font-size:10px}.bottomnav span{display:block;font-size:20px}.toast{position:fixed;right:18px;bottom:18px;z-index:200;background:#171717;border:1px solid #444;padding:13px 16px;border-radius:12px;box-shadow:var(--shadow)}
+.skeleton{background:linear-gradient(90deg,#171717,#242424,#171717);background-size:200% 100%;animation:load 1.1s infinite;height:240px;border-radius:15px}@keyframes load{to{background-position:-200% 0}}
+@media(max-width:1000px){.grid{grid-template-columns:repeat(3,1fr)}.nav{display:none}.category-grid{grid-template-columns:repeat(4,1fr)}}
+@media(max-width:720px){
+  body{font-size:14px;padding-bottom:72px}
+  .container{width:calc(100% - 20px)}
+  header{position:sticky;top:0}
+  .topbar{height:60px;gap:7px}
+  .brand{min-width:0;flex:1;gap:7px;padding:0;text-align:left}
+  .brand img{width:43px;height:35px;border-radius:8px}
+  .brand strong{font-size:13px;letter-spacing:.3px;display:block;line-height:1.1}
+  .brand span{display:none}
+  .nav{display:none}
+  .header-actions{margin-left:auto;gap:1px}
+  .header-actions .select{display:none}
+  .iconbtn{font-size:18px;width:39px;height:39px;padding:7px}
+  .mobile-menu-btn{display:grid!important;place-items:center;width:39px;height:39px;border:1px solid #333;background:#151515;color:#fff;border-radius:10px;font-size:20px}
+  .hero{margin:12px 0 20px;min-height:470px;border-radius:20px;background-position:center}
+  .hero-content{padding:34px 20px;max-width:100%}
+  .eyebrow{font-size:10px;letter-spacing:2px}
+  .hero h1{font-size:clamp(34px,11vw,52px);line-height:1.02}
+  .hero p{font-size:15px;line-height:1.55}
+  .actions{gap:8px}
+  .actions .btn{flex:1;min-width:140px}
+  .section{margin:25px 0}
+  .section-head{align-items:center}
+  .section h2{font-size:21px}
+  .grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+  .card{border-radius:13px}
+  .product-img{aspect-ratio:1/1}
+  .card-body{padding:10px}
+  .card h3{font-size:13px;line-height:1.35;min-height:35px}
+  .brandline{font-size:9px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .price{font-size:16px}
+  .card-foot{gap:5px}
+  .card-foot .btn{padding:9px 5px;font-size:10px}
+  .heart{width:34px;height:34px;font-size:17px}
+  .category-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+  .category{padding:14px;min-height:90px}
+  .page{padding:18px 0 95px}
+  .toolbar{display:block}
+  .searchbox{min-width:0;width:100%;margin-bottom:9px}
+  .searchbox input{min-width:0;font-size:14px}
+  .searchbox button{min-width:38px;padding:0 8px}
+  .toolbar>.select{width:100%}
+  .filter-panel{display:grid;grid-template-columns:1fr 1fr;gap:7px}
+  .filter-panel label{min-width:0}
+  .filter-panel select,.filter-panel input{min-width:0;width:100%}
+  .detail{grid-template-columns:1fr;gap:12px}
+  .gallery{grid-template-columns:1fr}
+  .mainpic{min-height:0;aspect-ratio:1/1}
+  .thumbs{order:2;flex-direction:row;overflow-x:auto;padding-bottom:3px}
+  .thumbs img{width:62px;height:62px;flex:0 0 auto}
+  .detail h1{font-size:27px;line-height:1.2}
+  .bigprice{font-size:26px}
+  .detail-box{padding:12px;margin:9px 0}
+  .option{padding:9px 12px}
+  .two,.account-grid{grid-template-columns:1fr}
+  .summary{position:static}
+  .admin-stat{grid-template-columns:1fr 1fr;gap:8px}
+  .stat{padding:13px}
+  .stat b{font-size:22px}
+  .cart-row{grid-template-columns:64px minmax(0,1fr);gap:9px}
+  .cart-row>div:last-child{grid-column:2}
+  .cart-row img{width:64px;height:64px}
+  .cart-actions .btn{font-size:10px;padding:7px 8px}
+  .modal{padding:8px}
+  .modal-card{padding:15px;border-radius:16px;max-height:94vh}
+  .form input,.form textarea,.form select{font-size:16px}
+  .btn{min-height:44px;padding:10px 14px}
+  .btn.small{min-height:38px;padding:7px 9px}
+  .bottomnav{display:flex;padding:7px 4px calc(7px + env(safe-area-inset-bottom));min-height:66px}
+  .bottomnav button{min-width:0;min-height:50px}
+  .bottomnav span{font-size:18px;line-height:20px}
+  .bottomnav label{font-size:9px}
+  .toast{left:12px;right:12px;bottom:80px;text-align:center}
+  .statusbar{grid-template-columns:repeat(5,minmax(75px,1fr));overflow-x:auto}
+  .tablewrap{max-width:100%;overflow-x:auto}
+}
+@media(min-width:721px){.mobile-menu-btn{display:none!important}}
+
+</style>
+</head>
+<body>
+<header>
+  <div class="container topbar">
+    <button class="brand" style="border:0;background:none;color:#fff" onclick="go('home')"><img src="logo.png" alt="Dragon Sports logo"><div><strong>DRAGON SPORTS</strong><span>UNLEASH YOUR GAME</span></div></button>
+    <nav class="nav">
+      <button data-nav="home" onclick="go('home')">Home</button><button data-nav="foryou" onclick="go('foryou')">For You</button><button data-nav="sports" onclick="go('sports')">Sports</button><button data-nav="dresses" onclick="go('dresses')">Sports Dresses</button><button data-nav="nutrition" onclick="go('nutrition')">Nutrients</button><button data-nav="gym" onclick="go('gym')">Gym Equipment</button><button data-nav="offers" onclick="go('offers')">Offers</button>
+    </nav>
+    <button class="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Open menu" aria-expanded="false">☰</button>
+    <div class="header-actions">
+      <button class="iconbtn" onclick="go('shop')" title="Search">⌕</button>
+      <button class="iconbtn" onclick="go('wishlist')" title="Wishlist">♡<i class="badge" id="wishBadge">0</i></button>
+      <button class="iconbtn" onclick="go('cart')" title="Cart">🛒<i class="badge" id="cartBadge">0</i></button>
+      <button class="iconbtn" onclick="go('account')" title="Account">◯</button>
+      <select class="select" id="lang" onchange="setLang(this.value)" aria-label="Language"><option>English</option><option>Tamil</option><option>Hindi</option><option>Malayalam</option><option>Telugu</option><option>Kannada</option><option>Bengali</option><option>Marathi</option><option>Arabic</option><option>French</option><option>Spanish</option><option>German</option><option>Japanese</option><option>Chinese</option></select>
+    </div>
+  </div>
+</header>
+
+<div id="mobileMenu" class="mobile-menu hidden" aria-hidden="true">
+  <div class="mobile-menu-card">
+    <div class="mobile-menu-head"><b>DRAGON SPORTS</b><button class="close" onclick="toggleMobileMenu(false)">×</button></div>
+    <button onclick="mobileGo('home')">⌂ Home</button>
+    <button onclick="mobileGo('foryou')">✦ For You</button>
+    <button onclick="mobileGo('sports')">⚽ Sports Categories</button>
+    <button onclick="mobileGo('dresses')">👕 Sports Dresses</button>
+    <button onclick="mobileGo('nutrition')">🥤 Nutrition</button>
+    <button onclick="mobileGo('gym')">🏋️ Gym Equipment</button>
+    <button onclick="mobileGo('offers')">🔥 Offers</button>
+    <button onclick="mobileGo('care')">☎ Customer Care</button>
+    <label class="mobile-language">Language<select onchange="setLang(this.value);toggleMobileMenu(false)"><option>English</option><option>Tamil</option><option>Hindi</option><option>Malayalam</option><option>Telugu</option><option>Kannada</option><option>Bengali</option><option>Marathi</option><option>Arabic</option><option>French</option><option>Spanish</option><option>German</option><option>Japanese</option><option>Chinese</option></select></label>
+  </div>
+</div>
+
+<main id="app"></main>
+
+<nav class="bottomnav">
+  <button onclick="go('home')"><span>⌂</span><label data-t="home">HOME</label></button>
+  <button onclick="go('foryou')"><span>✦</span><label>FOR YOU</label></button>
+  <button onclick="go('sports')"><span>⚽</span><label>CATEGORIES</label></button>
+  <button onclick="go('cart')"><span>🛒</span><label>CART</label></button>
+  <button onclick="go('account')"><span>◯</span><label>ACCOUNT</label></button>
+</nav>
+
+<div id="modal" class="modal hidden"></div>
+<div id="toast" class="toast hidden"></div>
+
+<script>
+/* DRAGON SPORTS — frontend demo store.
+   Production integration points:
+   - Replace PAYMENT_CONFIG with Razorpay/Stripe server-created orders + signature verification.
+   - Replace localStorage repositories with authenticated API calls.
+   - Image similarity can be connected to a vision-search endpoint.
+*/
+const PAYMENT_CONFIG={provider:"Razorpay",configured:false,serverOrderEndpoint:"/api/payments/create-order",verifyEndpoint:"/api/payments/verify"};
+const IMG={
+football:"https://images.unsplash.com/photo-1579952363873-27f3bade9f55?auto=format&fit=crop&w=900&q=85",
+shoes:"https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=900&q=85",
+cricket:"https://images.unsplash.com/photo-1531415074968-036ba1b575da?auto=format&fit=crop&w=900&q=85",
+badminton:"https://images.unsplash.com/photo-1626224583764-f87db24ac4ea?auto=format&fit=crop&w=900&q=85",
+tennis:"https://images.unsplash.com/photo-1554068865-24cecd4e34b8?auto=format&fit=crop&w=900&q=85",
+basketball:"https://images.unsplash.com/photo-1546519638-68e109498ffc?auto=format&fit=crop&w=900&q=85",
+boxing:"https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?auto=format&fit=crop&w=900&q=85",
+gym:"https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&w=900&q=85",
+yoga:"https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=900&q=85",
+swim:"https://images.unsplash.com/photo-1530549387789-4c1017266635?auto=format&fit=crop&w=900&q=85",
+cycling:"https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&w=900&q=85",
+golf:"https://images.unsplash.com/photo-1535131749006-b7f58c99034b?auto=format&fit=crop&w=900&q=85",
+volley:"https://images.unsplash.com/photo-1612872087720-bb876e2e67d1?auto=format&fit=crop&w=900&q=85",
+watch:"https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=900&q=85",
+shirt:"https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=900&q=85",
+protein:"https://images.unsplash.com/photo-1593095948071-474c5cc2989d?auto=format&fit=crop&w=900&q=85",
+energy:"https://images.unsplash.com/photo-1622543925917-763c34d1a6d5?auto=format&fit=crop&w=900&q=85",
+cap:"https://images.unsplash.com/photo-1521369909029-2afed882baee?auto=format&fit=crop&w=900&q=85",
+socks:"https://images.unsplash.com/photo-1582966772680-860e372bb558?auto=format&fit=crop&w=900&q=85",
+gloves:"https://images.unsplash.com/photo-1581655353564-df123a1eb820?auto=format&fit=crop&w=900&q=85",
+treadmill:"https://images.unsplash.com/photo-1576678927484-cc907957088c?auto=format&fit=crop&w=900&q=85",
+hockey:"https://images.unsplash.com/photo-1580748141549-71748dbe0a03?auto=format&fit=crop&w=900&q=85",
+run:"https://images.unsplash.com/photo-1552674605-db6ffd4facb5?auto=format&fit=crop&w=900&q=85"
+};
+const brands=["Nike","Adidas","Puma","Reebok","Under Armour","ASICS","Yonex","Wilson","New Balance","Skechers","Decathlon"];
+const cats=[
+["Football","football"],["Basketball","basketball"],["American Football","football"],["Baseball","football"],["Rugby","football"],["Cricket","cricket"],["Hockey","hockey"],["Relay Race","run"],["Kabaddi","run"],
+["Tennis","tennis"],["Badminton","badminton"],["Table Tennis","badminton"],["Squash","tennis"],["Boxing","boxing"],["Wrestling","boxing"],["Fencing","boxing"],["Martial Arts","boxing"],
+["Swimming","swim"],["Diving","swim"],["Water Polo","swim"],["Rowing","swim"],["Sailing","swim"],["Surfing","swim"],["Skiing","run"],["Snowboarding","run"],["Ice Hockey","hockey"],["Figure Skating","run"],["Curling","hockey"],
+["Golf","golf"],["Athletics","run"],["Hurdles","run"],["Shot Put","gym"],["Javelin Throw","run"],["High Jump","run"],["Long Jump","run"],["Gymnastics","gym"],["Cycling","cycling"],["Volleyball","volley"],["Beach Volleyball","volley"],["Formula One","run"],["Rally Racing","run"],["Motorcycle Racing","cycling"],["Archery","run"],["Shooting","boxing"],["Snooker","golf"],["Chess","gym"]
+];
+const templates=[
+["Football Pro Match Ball","Nike","Football","Football","football",1499,2499],
+["Elite FG Football Boots","Adidas","Football","Football Shoes","shoes",3299,4999],
+["Performance Football Jersey","Puma","Football","Jersey","shirt",1799,2799],
+["Carbon Cricket Bat","SS","Cricket","Cricket Bat","cricket",5499,7999],
+["Pro Cricket Leather Ball","SG","Cricket","Cricket Ball","cricket",799,1099],
+["Pro Cricket Batting Gloves","DSC","Cricket","Cricket Gloves","gloves",1299,1899],
+["Elite Cricket Helmet","Masuri","Cricket","Cricket Helmet","cricket",3999,5999],
+["Carbon Badminton Racket","Yonex","Badminton","Badminton Racket","badminton",2999,4499],
+["Tournament Shuttlecock 12 Pack","Yonex","Badminton","Shuttlecock","badminton",999,1499],
+["Pro Tennis Racket","Wilson","Tennis","Tennis Racket","tennis",4999,6999],
+["Carbon Table Tennis Bat","Decathlon","Table Tennis","Table Tennis Bat","badminton",1299,1999],
+["Impact Boxing Gloves 12oz","Everlast","Boxing","Boxing Gloves","boxing",1799,2699],
+["Heavy Duty Boxing Bag","RDX","Boxing","Boxing Bag","boxing",4999,6999],
+["Wrestling Knee Support","Under Armour","Wrestling","Wrestling Equipment","gloves",899,1399],
+["Aqua Pro Swim Goggles","Decathlon","Swimming","Swimming Equipment","swim",699,999],
+["Pro Volleyball Match Ball","Puma","Volleyball","Volleyball","volley",1599,2299],
+["Street Basketball Elite","Nike","Basketball","Basketball","basketball",1799,2499],
+["Velocity Running Shoes","ASICS","Athletics","Running Shoes","run",3999,5999],
+["Smart Sports Watch","Amazfit","Running","Sports Watch","watch",6499,8999],
+["Hex Gym Dumbbell 10kg","Decathlon","Gym","Dumbbells","gym",1999,2999],
+["Olympic Barbell 20kg","Decathlon","Gym","Barbell","gym",6499,8999],
+["Cast Iron Weight Plate 10kg","Decathlon","Gym","Weight Plate","gym",1699,2399],
+["Competition Kettlebell 16kg","Decathlon","Gym","Kettlebell","gym",2199,3299],
+["Power Resistance Band Set","Decathlon","Gym","Resistance Bands","gym",799,1299],
+["Premium Yoga Mat","Decathlon","Yoga","Yoga Mat","yoga",999,1599],
+["Adjustable Gym Bench","Decathlon","Gym","Gym Bench","gym",7499,9999],
+["Speed Skipping Rope","Reebok","Gym","Skipping Rope","gym",499,799],
+["Smart Folding Treadmill","PowerMax","Gym","Treadmill","treadmill",24999,34999],
+["Training Sports T-Shirt","Nike","Running","Sports T-Shirt","shirt",1199,1799],
+["Performance Track Pants","Adidas","Running","Track Pants","shirt",1899,2799],
+["Training Shorts","Puma","Football","Shorts","shirt",899,1299],
+["Pro Football Club Jersey","Adidas","Football","Jersey","shirt",2199,3299],
+["Thermal Sports Jacket","Under Armour","Running","Sports Jacket","shirt",2999,4499],
+["Performance Cap","Nike","Running","Cap","cap",699,999],
+["Athletic Crew Socks 3 Pack","Skechers","Running","Socks","socks",599,899],
+["Compression Training Top","ASICS","Gym","Compression Wear","shirt",1499,2299],
+["Whey Protein 1kg","MuscleBlaze","Gym","Protein","protein",2499,3499],
+["Protein Crunch Bars 12 Pack","MuscleBlaze","Gym","Protein Bar","protein",1199,1599],
+["Hydration Electrolyte Mix","Fast&Up","Running","Electrolytes","energy",699,999],
+["Endurance Sports Drink 500ml","Fast&Up","Running","Sports Drink","energy",99,149],
+["King Energy Drink 250ml","King Sports","Running","Energy Drink","energy",50,70],
+["Pre Workout Blast 300g","MuscleBlaze","Gym","Pre Workout","protein",1599,2299],
+["Post Workout Recovery 500g","MuscleBlaze","Gym","Post Workout","protein",1799,2599],
+["Healthy Oat Energy Bites","Yoga Bar","Running","Healthy Snack","protein",399,599],
+["Professional Golf Glove","Wilson","Golf","Golf Equipment","gloves",999,1499],
+["Carbon Cycling Helmet","Decathlon","Cycling","Cycling Equipment","cycling",1999,2999],
+["Pro Hockey Stick","Decathlon","Hockey","Hockey Equipment","hockey",2999,4499],
+["Competition Gymnastics Rings","Decathlon","Gymnastics","Gym Equipment","gym",1599,2299],
+["Portable Pull Up Bar","Decathlon","Gym","Pull Up Bar","gym",1399,1999]
+];
+const products=templates.map((t,i)=>({id:`DS-${String(i+1).padStart(4,"0")}`,name:t[0],brand:t[1],sport:t[2],category:t[3],img:IMG[t[4]],images:[IMG[t[4]],IMG[t[4]],IMG[t[4]]],price:t[5],mrp:t[6],discount:Math.round((1-t[5]/t[6])*100),sizes:["S","M","L","XL","XXL"],colors:["Black","Red","White","Blue"],stock:3+(i*7)%37,rating:+(4+(i%10)/10).toFixed(1),reviews:12+(i*17)%488,description:`Premium ${t[0].toLowerCase()} designed for training, competition and everyday performance.`,specifications:["Durable construction","Performance-focused design","Easy-care materials","Quality checked"],shipping:"Standard delivery 3–7 business days. Express delivery 1–3 business days.",returns:"Eligible for return within 7 days when unused and in original condition.",nutrition:t[3].match(/Protein|Drink|Electrolytes|Energy|Snack|Workout/)?"See pack label for nutrition and ingredient information.":""}));
+
+const state={
+page:"home",query:"",filters:{category:"",brand:"",sport:"",min:"",max:"",discount:"",color:"",size:"",rating:"",availability:""},sort:"Relevance",
+cart:JSON.parse(localStorage.getItem("ds_cart")||"[]"),wish:JSON.parse(localStorage.getItem("ds_wish")||"[]"),orders:JSON.parse(localStorage.getItem("ds_orders")||"[]"),
+recent:JSON.parse(localStorage.getItem("ds_recent")||"[]"),coupon:localStorage.getItem("ds_coupon")||"",lang:localStorage.getItem("ds_lang")||"English",selectedSport:localStorage.getItem("ds_sport")||"",
+checkout:{step:1,buyNow:null,customer:{},address:{},delivery:"Standard Delivery",payment:"Cash on Delivery"}
+};
+function save(){localStorage.setItem("ds_cart",JSON.stringify(state.cart));localStorage.setItem("ds_wish",JSON.stringify(state.wish));localStorage.setItem("ds_orders",JSON.stringify(state.orders));localStorage.setItem("ds_recent",JSON.stringify(state.recent));localStorage.setItem("ds_coupon",state.coupon)}
+function money(n){return "₹"+Number(n).toLocaleString("en-IN")}
+function toast(s){const e=document.getElementById("toast");e.textContent=s;e.classList.remove("hidden");clearTimeout(window.tt);window.tt=setTimeout(()=>e.classList.add("hidden"),2400)}
+function getProduct(id){return products.find(p=>p.id===id)}
+function cartCount(){return state.cart.reduce((a,x)=>a+x.qty,0)}
+function updateBadges(){document.getElementById("cartBadge").textContent=cartCount();document.getElementById("wishBadge").textContent=state.wish.length}
+function go(page,param=""){state.page=page;state.param=param;render();scrollTo(0,0)}
+function addRecent(id){state.recent=[id,...state.recent.filter(x=>x!==id)].slice(0,12);save()}
+function isWish(id){return state.wish.includes(id)}
+function toggleWish(id){state.wish=isWish(id)?state.wish.filter(x=>x!==id):[...state.wish,id];save();updateBadges();render();toast(isWish(id)?"Added to wishlist":"Removed from wishlist")}
+function addCart(id,qty=1,options={}){const p=getProduct(id);if(!p)return;const key=id+"|"+(options.size||"")+"|"+(options.color||"");let item=state.cart.find(x=>x.key===key);if(item)item.qty=Math.min(p.stock,item.qty+qty);else state.cart.push({key,id,qty:Math.min(p.stock,qty),size:options.size||p.sizes[1],color:options.color||p.colors[0]});save();updateBadges();toast(`${p.name} added to cart`)}
+function removeCart(key){state.cart=state.cart.filter(x=>x.key!==key);save();render();updateBadges()}
+function setQty(key,delta){const x=state.cart.find(x=>x.key===key);if(!x)return;x.qty=Math.max(1,Math.min(getProduct(x.id).stock,x.qty+delta));save();render();updateBadges()}
+function cartItems(){return state.cart.map(x=>({...x,p:getProduct(x.id)})).filter(x=>x.p)}
+function totals(){let sub=cartItems().reduce((a,x)=>a+x.p.price*x.qty,0);let mrp=cartItems().reduce((a,x)=>a+x.p.mrp*x.qty,0);let discount=mrp-sub;let coupon=state.coupon==="DRAGON10"?Math.round(sub*.10):state.coupon==="DIWALI20"?Math.round(sub*.20):state.coupon==="SPORTS15"?Math.round(sub*.15):0;let delivery=sub>=2999?0:149;return {sub,mrp,discount,coupon,delivery,total:Math.max(0,sub-coupon+delivery)}}
+function imgFallback(e,name){e.target.src="data:image/svg+xml;charset=UTF-8,"+encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" width="800" height="800"><rect width="100%" height="100%" fill="#171717"/><text x="50%" y="46%" text-anchor="middle" fill="#e50914" font-size="34" font-family="Arial" font-weight="700">DRAGON SPORTS</text><text x="50%" y="53%" text-anchor="middle" fill="#fff" font-size="22" font-family="Arial">${name.replace(/&/g,"and").slice(0,34)}</text></svg>`)}
+function card(p){return `<article class="card"><div class="product-img" onclick="go('product','${p.id}')"><img loading="lazy" src="${p.img}" alt="${p.name}" onerror="imgFallback(event,'${p.name.replace(/'/g,"")}')"><span class="discount">-${p.discount}%</span><button class="heart ${isWish(p.id)?"active":""}" onclick="event.stopPropagation();toggleWish('${p.id}')" aria-label="Wishlist">${isWish(p.id)?"♥":"♡"}</button></div><div class="card-body"><div class="brandline">${p.brand} • ${p.category}</div><h3 onclick="go('product','${p.id}')" style="cursor:pointer">${p.name}</h3><div><span class="price">${money(p.price)}</span><span class="mrp">${money(p.mrp)}</span></div><div class="rating">★ ${p.rating} <span class="muted">(${p.reviews})</span></div><div class="stock">${p.stock>0?"In stock":"Out of stock"}</div><div class="card-foot"><button class="btn small primary" onclick="addCart('${p.id}')">ADD TO CART</button><button class="btn small" onclick="go('product','${p.id}')">VIEW</button></div></div></article>`}
+function productGrid(arr){return arr.length?`<div class="grid">${arr.map(card).join("")}</div>`:`<div class="detail-box"><h3>No products found</h3><p class="muted">Try another search, category or filter.</p><button class="btn primary" onclick="clearFilters()">Clear filters</button></div>`}
+function section(title,arr,action){return `<section class="section"><div class="section-head"><div><h2>${title}</h2><div class="muted">Performance gear built to move</div></div>${action?`<button onclick="${action}">View all →</button>`:""}</div>${productGrid(arr.slice(0,4))}</section>`}
+function home(){const trend=products.slice(0,8), best=[...products].sort((a,b)=>b.rating-a.rating).slice(0,8), deals=[...products].sort((a,b)=>b.discount-a.discount).slice(0,8), newA=products.slice(-8).reverse();return `<div class="container"><section class="hero"><div class="hero-content"><div class="eyebrow">DRAGON SPORTS • ${t("premium")}</div><h1>PLAY HARD.<br>TRAIN HARDER.<br>BE A DRAGON.</h1><p>Premium sports gear, training equipment, performance wear and sports nutrition — all in one place.</p><div class="actions"><button class="btn primary" onclick="go('shop')">${t("shopNow")}</button><button class="btn ghost" onclick="go('sports')">${t("exploreSports")}</button></div></div></section>
+<section class="section"><div class="section-head"><h2>Shop by Sport</h2><button onclick="go('sports')">All sports →</button></div><div class="category-grid">${cats.slice(0,15).map(c=>`<button class="category" onclick="filterSport('${c[0]}')"><b>${c[0]}</b><small>Explore products →</small></button>`).join("")}</div></section>
+${section("Trending Products",trend,"go('shop')")}${section("Best Sellers",best,"go('shop')")}${section("New Arrivals",newA,"go('shop')")}${section("Flash Deals",deals,"go('offers')")}
+<section class="section"><div class="section-head"><h2>Top Brands</h2></div><div class="brands">${brands.map(b=>`<button class="brand-pill" onclick="filterBrand('${b}')">${b}</button>`).join("")}</div></section>
+${section("Top Rated Products",best,"go('shop')")}
+<section class="section"><div class="detail-box"><h2>Need help?</h2><p class="muted">Talk to Dragon Sports customer care for orders, delivery, returns or product questions.</p><button class="btn primary" onclick="go('care')">Customer Care</button></div></section></div>`}
+function filterSport(s){state.filters.sport=s;state.query="";go('shop')}
+function filterBrand(b){state.filters.brand=b;state.query="";go('shop')}
+function clearFilters(){state.query="";state.filters={category:"",brand:"",sport:"",min:"",max:"",discount:"",color:"",size:"",rating:"",availability:""};render()}
+function filtered(){let a=products.filter(p=>{let q=state.query.toLowerCase();return (!q||[p.name,p.brand,p.category,p.sport,p.description].join(" ").toLowerCase().includes(q))&&(!state.filters.category||p.category===state.filters.category)&&(!state.filters.brand||p.brand===state.filters.brand)&&(!state.filters.sport||p.sport===state.filters.sport)&&(!state.filters.min||p.price>=+state.filters.min)&&(!state.filters.max||p.price<=+state.filters.max)&&(!state.filters.discount||p.discount>=+state.filters.discount)&&(!state.filters.color||p.colors.includes(state.filters.color))&&(!state.filters.size||p.sizes.includes(state.filters.size))&&(!state.filters.rating||p.rating>=+state.filters.rating)&&(!state.filters.availability||state.filters.availability==="In stock"&&p.stock>0)});switch(state.sort){case"Price Low to High":a.sort((x,y)=>x.price-y.price);break;case"Price High to Low":a.sort((x,y)=>y.price-x.price);break;case"Newest":a.sort((x,y)=>+y.id.slice(3)-+x.id.slice(3));break;case"Highest Rated":a.sort((x,y)=>y.rating-x.rating);break;case"Biggest Discount":a.sort((x,y)=>y.discount-x.discount)}return a}
+function shop(){let a=filtered();return `<div class="container page"><div class="section-head"><div><h1>Sports Shop</h1><p class="muted">${a.length} products • Search, filter and sort</p></div></div><div class="toolbar"><div class="searchbox"><input id="searchInput" value="${state.query.replace(/"/g,"&quot;")}" placeholder="Search football shoes, red jersey, protein..." onkeydown="if(event.key==='Enter')doSearch()"><button onclick="doSearch()">🔎</button><button onclick="voiceSearch()">🎙️</button><button onclick="imageSearch()">📷</button><button onclick="scanner()">🔍</button></div><select class="select" onchange="state.sort=this.value;render()"><option>Relevance</option><option>Price Low to High</option><option>Price High to Low</option><option>Newest</option><option>Highest Rated</option><option>Biggest Discount</option></select></div>
+<div class="filter-panel">
+<label>Category<select onchange="state.filters.category=this.value;render()"><option value="">All</option>${[...new Set(products.map(p=>p.category))].sort().map(x=>`<option ${state.filters.category===x?"selected":""}>${x}</option>`).join("")}</select></label>
+<label>Brand<select onchange="state.filters.brand=this.value;render()"><option value="">All</option>${brands.map(x=>`<option ${state.filters.brand===x?"selected":""}>${x}</option>`).join("")}</select></label>
+<label>Sport<select onchange="state.filters.sport=this.value;render()"><option value="">All</option>${[...new Set(products.map(p=>p.sport))].sort().map(x=>`<option ${state.filters.sport===x?"selected":""}>${x}</option>`).join("")}</select></label>
+<label>Min ₹<input type="number" value="${state.filters.min}" onchange="state.filters.min=this.value;render()"></label><label>Max ₹<input type="number" value="${state.filters.max}" onchange="state.filters.max=this.value;render()"></label>
+<label>Discount<select onchange="state.filters.discount=this.value;render()"><option value="">Any</option><option value="10">10%+</option><option value="20">20%+</option><option value="30">30%+</option></select></label>
+<label>Colour<select onchange="state.filters.color=this.value;render()"><option value="">Any</option>${products[0].colors.map(x=>`<option>${x}</option>`).join("")}</select></label>
+<label>Size<select onchange="state.filters.size=this.value;render()"><option value="">Any</option>${products[0].sizes.map(x=>`<option>${x}</option>`).join("")}</select></label>
+<label>Rating<select onchange="state.filters.rating=this.value;render()"><option value="">Any</option><option value="4">4★+</option><option value="4.5">4.5★+</option></select></label>
+<label>Availability<select onchange="state.filters.availability=this.value;render()"><option value="">Any</option><option>In stock</option></select></label>
+<button class="btn small" onclick="clearFilters()">RESET</button></div>${productGrid(a)}</div>`}
+function doSearch(){state.query=document.getElementById("searchInput").value.trim();render()}
+function voiceSearch(){if(!("webkitSpeechRecognition" in window||"SpeechRecognition" in window)){toast("Voice search is not supported in this browser");return}const R=window.SpeechRecognition||window.webkitSpeechRecognition;const r=new R();r.lang=state.lang==="Tamil"?"ta-IN":"en-IN";r.onresult=e=>{state.query=e.results[0][0].transcript;render();toast("Voice search applied")};r.onerror=()=>toast("Microphone permission/search error");r.start()}
+function imageSearch(){openModal(`<div class="modal-head"><h2>Image Search</h2><button class="close" onclick="closeModal()">×</button></div><p class="muted">Upload a sports product photo. The demo uses filename/metadata matching; connect your visual-search API at <b>POST /api/search/visual</b> for true similarity search.</p><input type="file" accept="image/*" capture="environment" onchange="previewImage(event)"><div id="imagePreview"></div><button class="btn primary" onclick="demoImageSearch()">Find similar products</button>`)}
+function previewImage(e){const f=e.target.files[0];if(!f)return;const u=URL.createObjectURL(f);document.getElementById("imagePreview").innerHTML=`<img src="${u}" style="width:160px;border-radius:12px;margin:12px 0"><p class="muted">${f.name}</p>`}
+function demoImageSearch(){state.query="sports";closeModal();go("shop");toast("Visual-search demo: showing sports matches. Connect /api/search/visual for AI similarity.")}
+async function scanner(){if(!("BarcodeDetector" in window)){openModal(`<div class="modal-head"><h2>Barcode Scanner</h2><button class="close" onclick="closeModal()">×</button></div><p class="muted">BarcodeDetector is not supported by this browser. You can enter a product ID manually.</p><input id="manualCode" class="select" style="width:100%" placeholder="DS-0001"><button class="btn primary" style="margin-top:10px" onclick="manualScan()">Open product</button>`);return}
+openModal(`<div class="modal-head"><h2>Barcode Scanner</h2><button class="close" onclick="stopScanner();closeModal()">×</button></div><video id="scanVideo" autoplay playsinline style="width:100%;border-radius:15px;background:#000"></video><p class="muted">Point the camera at a barcode containing a Dragon Sports product ID.</p>`);
+try{const stream=await navigator.mediaDevices.getUserMedia({video:{facingMode:"environment"}});window.scanStream=stream;const v=document.getElementById("scanVideo");v.srcObject=stream;const detector=new BarcodeDetector();const loop=async()=>{if(!document.getElementById("scanVideo"))return;try{const codes=await detector.detect(v);if(codes.length){const id=codes[0].rawValue.toUpperCase();stopScanner();closeModal();if(getProduct(id))go("product",id);else toast("Product code not found");return}}catch(e){}requestAnimationFrame(loop)};loop()}catch(e){toast("Camera permission is required")}}
+function manualScan(){const id=document.getElementById("manualCode").value.toUpperCase().trim();closeModal();getProduct(id)?go("product",id):toast("Product ID not found")}
+function stopScanner(){if(window.scanStream)window.scanStream.getTracks().forEach(t=>t.stop());window.scanStream=null}
+function sports(){return `<div class="container page"><div class="section-head"><div><h1>Sports Categories</h1><p class="muted">Choose a sport to see relevant products.</p></div></div><div class="category-grid">${cats.map(c=>`<button class="category" onclick="filterSport('${c[0]}')"><b>${c[0]}</b><small>Shop ${c[0]} →</small></button>`).join("")}</div></div>`}
+function dresses(){return `<div class="container page"><h1>Sports Dresses</h1><p class="muted">Performance clothing and accessories.</p><div class="chips">${["Jersey","Sports T-Shirt","Track Pants","Shorts","Gym Wear","Running Wear","Compression Wear","Sports Jacket","Sports Shoes","Caps","Gloves","Socks"].map(c=>`<button class="chip" onclick="state.filters.category='${c}';go('shop')">${c}</button>`).join("")}</div><div style="margin-top:20px">${productGrid(products.filter(p=>["Jersey","Sports T-Shirt","Track Pants","Shorts","Sports Jacket","Compression Wear","Running Shoes","Cap","Socks"].includes(p.category)))}</div></div>`}
+function nutrition(){const a=products.filter(p=>["Protein","Protein Bar","Electrolytes","Sports Drink","Energy Drink","Pre Workout","Post Workout","Healthy Snack"].includes(p.category));return `<div class="container page"><h1>Sports Nutrition</h1><p class="muted">Fuel training with performance nutrition and hydration.</p><div class="detail-box"><b>Nutrition note:</b> ingredients and nutrition values should be verified on the physical package before use.</div>${productGrid(a)}</div>`}
+function gym(){const a=products.filter(p=>["Dumbbells","Barbell","Weight Plate","Kettlebell","Resistance Bands","Yoga Mat","Gym Bench","Pull Up Bar","Treadmill","Skipping Rope"].includes(p.category));return `<div class="container page"><h1>Gym Equipment</h1><p class="muted">Build your training setup.</p>${productGrid(a)}</div>`}
+function offers(){const deals=[...products].sort((a,b)=>b.discount-a.discount);return `<div class="container page"><h1>Offers</h1><div class="chips"><button class="chip" onclick="go('offers')">DIWALI SPECIAL</button><button class="chip" onclick="state.sort='Biggest Discount';go('shop')">FLASH SALE</button><button class="chip" onclick="state.query='';state.filters.discount=20;go('shop')">COMBO OFFERS</button><button class="chip" onclick="go('offers')">LIMITED OFFERS</button><button class="chip" onclick="openCoupon()">COUPONS</button><button class="chip" onclick="state.filters.discount=30;go('shop')">CLEARANCE SALE</button></div><section class="section"><div class="detail-box"><h2>Coupons</h2><p>Use <b>DRAGON10</b> for 10%, <b>DIWALI20</b> for 20%, or <b>SPORTS15</b> for 15% off eligible demo cart items.</p><button class="btn primary" onclick="openCoupon()">Apply coupon</button></div></section>${section("Best Deals",deals,"state.sort='Biggest Discount';go('shop')")}</div>`}
+function openCoupon(){openModal(`<div class="modal-head"><h2>Apply Coupon</h2><button class="close" onclick="closeModal()">×</button></div><input id="couponInput" class="select" style="width:100%" value="${state.coupon}" placeholder="DRAGON10"><button class="btn primary" style="margin-top:10px" onclick="applyCoupon()">Apply</button>`)}
+function applyCoupon(){const c=document.getElementById("couponInput").value.trim().toUpperCase();if(["DRAGON10","DIWALI20","SPORTS15"].includes(c)){state.coupon=c;save();closeModal();toast(c+" applied");go("cart")}else toast("Invalid demo coupon")}
+function productPage(id){const p=getProduct(id);if(!p)return `<div class="container page"><h1>Product not found</h1><button class="btn primary" onclick="go('shop')">Back to shop</button></div>`;addRecent(id);const reviews=demoReviews(p);return `<div class="container page"><div class="detail"><div class="gallery"><div class="thumbs">${p.images.map((im,i)=>`<img class="${i===0?"active":""}" src="${im}" onerror="imgFallback(event,'${p.name}')" onclick="setMainImg('${im}',this)">`).join("")}</div><div class="mainpic"><img id="mainProductImg" src="${p.images[0]}" alt="${p.name}" onerror="imgFallback(event,'${p.name}')"></div></div><div><div class="brandline">${p.brand} • ${p.category} • ${p.id}</div><h1>${p.name}</h1><div class="rating">★ ${p.rating} <span class="muted">${p.reviews} reviews</span></div><div class="bigprice">${money(p.price)} <span class="mrp">${money(p.mrp)}</span> <span class="discount">${p.discount}% OFF</span></div><div class="detail-box"><b>Colour</b><div class="option-row" style="margin-top:8px">${p.colors.map((x,i)=>`<button class="option ${i===0?"active":""}" onclick="selectOpt(this)">${x}</button>`).join("")}</div></div><div class="detail-box"><b>Size</b><div class="option-row" style="margin-top:8px">${p.sizes.map((x,i)=>`<button class="option ${i===1?"active":""}" onclick="selectOpt(this)">${x}</button>`).join("")}</div></div><div class="detail-box"><b>Quantity</b><div class="qty" style="margin-top:8px"><button onclick="detailQty(-1)">−</button><b id="detailQty">1</b><button onclick="detailQty(1)">+</button><span class="muted">${p.stock} available</span></div></div><div class="actions"><button class="btn primary" onclick="detailAdd('${p.id}')">ADD TO CART</button><button class="btn yellow" onclick="buyNow('${p.id}')">BUY NOW</button><button class="btn" onclick="toggleWish('${p.id}')">${isWish(p.id)?"♥ SAVED":"♡ WISHLIST"}</button><button class="btn" onclick="shareProduct('${p.id}')">SHARE</button></div><div class="detail-box"><b>Description</b><p class="muted">${p.description}</p><b>Specifications</b><ul>${p.specifications.map(x=>`<li>${x}</li>`).join("")}</ul><b>Delivery</b><p class="muted">${p.shipping}</p><b>Returns</b><p class="muted">${p.returns}</p>${p.nutrition?`<b>Nutrition</b><p class="muted">${p.nutrition}</p>`:""}</div></div></div><section class="section"><div class="section-head"><h2>Customer Reviews</h2><button onclick="writeReview('${p.id}')">Write Review</button></div><div class="detail-box">${reviews.join("")}</div></section></div>`}
+function setMainImg(im,el){document.getElementById("mainProductImg").src=im;document.querySelectorAll(".thumbs img").forEach(x=>x.classList.remove("active"));el.classList.add("active")}
+let dq=1;function detailQty(d){dq=Math.max(1,dq+d);const e=document.getElementById("detailQty");if(e)e.textContent=dq}function selectOpt(el){el.parentElement.querySelectorAll(".option").forEach(x=>x.classList.remove("active"));el.classList.add("active")}
+function detailAdd(id){const color=document.querySelector(".detail .option-row .active")?.textContent||"Black";const size=document.querySelectorAll(".detail .option-row")[1]?.querySelector(".active")?.textContent||"M";addCart(id,dq,{color,size});dq=1}
+function buyNow(id){state.checkout.buyNow={id,qty:dq};state.checkout.step=1;go("checkout")}
+async function shareProduct(id){const p=getProduct(id);if(navigator.share)try{await navigator.share({title:p.name,text:`${p.name} at Dragon Sports`,url:location.href})}catch(e){}else{await navigator.clipboard?.writeText(location.href);toast("Product link copied")}}
+function demoReviews(p){return [`<div class="review"><b>★★★★★</b> <span class="muted">Verified buyer</span><p>Good quality and fast delivery. The product feels durable.</p></div>`,`<div class="review"><b>★★★★☆</b> <span class="muted">Verified buyer</span><p>Value for money and packaging was secure.</p></div>`]}
+function writeReview(id){openModal(`<div class="modal-head"><h2>Write Review</h2><button class="close" onclick="closeModal()">×</button></div><div class="form"><select id="reviewRating"><option value="5">★★★★★ 5</option><option value="4">★★★★☆ 4</option><option value="3">★★★☆☆ 3</option><option value="2">★★☆☆☆ 2</option><option value="1">★☆☆☆☆ 1</option></select><textarea id="reviewText" rows="4" placeholder="Share your experience"></textarea><input type="file" accept="image/*"><button class="btn primary" onclick="submitReview('${id}')">Submit Review</button></div>`)}
+function submitReview(id){const r=+document.getElementById("reviewRating").value,text=document.getElementById("reviewText").value.trim();if(!text)return toast("Write a review first");const key="ds_reviews_"+id, arr=JSON.parse(localStorage.getItem(key)||"[]");arr.unshift({r,text,date:new Date().toLocaleDateString()});localStorage.setItem(key,JSON.stringify(arr));closeModal();toast("Review submitted");go("product",id)}
+function cart(){const items=cartItems(),t=totals();return `<div class="container page"><h1>Your Cart</h1>${items.length?`<div class="detail" style="grid-template-columns:1fr 330px"><div>${items.map(x=>`<div class="cart-row"><img src="${x.p.img}" onerror="imgFallback(event,'${x.p.name}')"><div><div class="brandline">${x.p.brand}</div><h3>${x.p.name}</h3><div class="muted">Size: ${x.size} • Colour: ${x.color}</div><div class="price">${money(x.p.price)}</div><div class="cart-actions"><button class="btn small" onclick="setQty('${x.key}',-1)">−</button><b>${x.qty}</b><button class="btn small" onclick="setQty('${x.key}',1)">+</button><button class="btn small" onclick="saveLater('${x.key}')">Save for later</button><button class="btn small" onclick="removeCart('${x.key}')">Remove</button></div></div><div><b>${money(x.p.price*x.qty)}</b></div></div>`).join("")}<button class="btn" onclick="state.cart=[];save();render();updateBadges()">Clear cart</button></div><div class="summary"><h3>Order Summary</h3><div class="sumline"><span>MRP</span><span>${money(t.mrp)}</span></div><div class="sumline"><span>Product discount</span><span>−${money(t.discount)}</span></div><div class="sumline"><span>Coupon</span><span>−${money(t.coupon)}</span></div><div class="sumline"><span>Delivery</span><span>${t.delivery?money(t.delivery):"FREE"}</span></div><div class="total sumline"><span>Total</span><span>${money(t.total)}</span></div><button class="btn small" onclick="openCoupon()">Apply coupon</button><button class="btn primary" style="width:100%;margin-top:10px" onclick="go('checkout')">CHECKOUT</button></div></div>`:`<div class="detail-box"><h2>Your cart is empty</h2><p class="muted">Add products from the shop to start an order.</p><button class="btn primary" onclick="go('shop')">SHOP NOW</button></div>`}</div>`}
+function saveLater(key){const x=state.cart.find(x=>x.key===key);if(x){state.wish.push(x.id);removeCart(key);toast("Saved to wishlist")}}
+function wishlist(){const a=state.wish.map(getProduct).filter(Boolean);return `<div class="container page"><div class="section-head"><div><h1>Wishlist</h1><p class="muted">${a.length} saved products</p></div></div>${a.length?`<div class="grid">${a.map(p=>card(p)).join("")}</div>`:`<div class="detail-box"><h2>Your wishlist is empty</h2><button class="btn primary" onclick="go('shop')">EXPLORE PRODUCTS</button></div>`}</div>`}
+function checkout(){let items=state.checkout.buyNow?[{p:getProduct(state.checkout.buyNow.id),qty:state.checkout.buyNow.qty,size:"M",color:"Black"}]:cartItems();if(!items.length)return `<div class="container page"><h1>Checkout</h1><p>Your cart is empty.</p><button class="btn primary" onclick="go('shop')">Shop now</button></div>`;let t=state.checkout.buyNow?(()=>{const x=items[0];const sub=x.p.price*x.qty;const mrp=x.p.mrp*x.qty;return{sub,mrp,discount:mrp-sub,coupon:0,delivery:sub>=2999?0:149,total:sub+(sub>=2999?0:149)}})():totals();const s=state.checkout.step;return `<div class="container page"><h1>Checkout</h1><div class="checkout-steps">${["Customer","Address","Delivery","Payment","Confirm"].map((x,i)=>`<span class="step ${s===i+1?"active":""}">${i+1}. ${x}</span>`).join("")}</div><div class="detail" style="grid-template-columns:1fr 330px"><div class="detail-box">${s===1?checkoutCustomer():s===2?checkoutAddress():s===3?checkoutDelivery():s===4?checkoutPayment():checkoutConfirm(items,t)}</div><div class="summary"><h3>Summary</h3>${items.map(x=>`<div class="sumline"><span>${x.p.name} ×${x.qty}</span><span>${money(x.p.price*x.qty)}</span></div>`).join("")}<div class="sumline"><span>Delivery</span><span>${t.delivery?money(t.delivery):"FREE"}</span></div><div class="total sumline"><span>Total</span><span>${money(t.total)}</span></div></div></div></div>`}
+function checkoutCustomer(){const c=state.checkout.customer;return `<h2>Customer Information</h2><div class="form"><input id="cname" placeholder="Full name" value="${c.name||""}"><input id="cmobile" placeholder="Mobile number" value="${c.mobile||""}"><input id="cemail" type="email" placeholder="Email" value="${c.email||""}"><button class="btn primary" onclick="nextCheckout(1)">Continue</button></div>`}
+function checkoutAddress(){const a=state.checkout.address;return `<h2>Delivery Address</h2><div class="form"><input id="street" placeholder="House / Street" value="${a.street||""}"><input id="town" placeholder="Village / Town" value="${a.town||"Kodumudi"}"><div class="two"><input id="district" placeholder="District" value="${a.district||"Erode"}"><input id="state" placeholder="State" value="${a.state||"Tamil Nadu"}"></div><input id="pincode" placeholder="Pincode" value="${a.pincode||""}"><p class="muted">Business location reference: Kodumudi, Erode, Tamil Nadu, India.</p><button class="btn primary" onclick="nextCheckout(2)">Continue</button></div>`}
+function checkoutDelivery(){return `<h2>Delivery Method</h2><div class="option-row"><button class="option ${state.checkout.delivery==="Standard Delivery"?"active":""}" onclick="state.checkout.delivery='Standard Delivery';render()">Standard Delivery</button><button class="option ${state.checkout.delivery==="Express Delivery"?"active":""}" onclick="state.checkout.delivery='Express Delivery';render()">Express Delivery</button></div><p class="muted">Standard: 3–7 business days. Express: 1–3 business days.</p><button class="btn primary" onclick="nextCheckout(3)">Continue</button>`}
+function checkoutPayment(){const p=state.checkout.payment;return `<h2>Payment</h2><div class="option-row">${["Cash on Delivery","UPI","Google Pay","PhonePe","Paytm","Credit Card","Debit Card","Net Banking"].map(x=>`<button class="option ${p===x?"active":""}" onclick="state.checkout.payment='${x}';render()">${x}</button>`).join("")}</div><div class="detail-box"><b>Demo payment notice</b><p class="muted">COD can be selected in this demo. Online payment buttons are UI integration points only until a real gateway and server verification endpoint are configured.</p></div><button class="btn primary" onclick="nextCheckout(4)">Continue</button>`}
+function checkoutConfirm(items,t){return `<h2>Confirm Order</h2><p><b>${state.checkout.customer.name}</b> • ${state.checkout.customer.mobile}</p><p class="muted">${Object.values(state.checkout.address).filter(Boolean).join(", ")}</p><p>Delivery: <b>${state.checkout.delivery}</b> • Payment: <b>${state.checkout.payment}</b></p><div class="detail-box">${items.map(x=>`<div class="sumline"><span>${x.p.name} ×${x.qty}</span><span>${money(x.p.price*x.qty)}</span></div>`).join("")}<div class="total sumline"><span>Total</span><span>${money(t.total)}</span></div></div><button class="btn primary" onclick="placeOrder()">PLACE DEMO ORDER</button>`}
+function nextCheckout(step){if(step===1){const name=document.getElementById("cname").value.trim(),mobile=document.getElementById("cmobile").value.trim(),email=document.getElementById("cemail").value.trim();if(!name||!mobile||!email)return toast("Complete customer information");state.checkout.customer={name,mobile,email}}
+if(step===2){const ids=["street","town","district","state","pincode"],a={};ids.forEach(i=>a[i]=document.getElementById(i).value.trim());if(!a.street||!a.town||!a.district||!a.state||!a.pincode)return toast("Complete delivery address");state.checkout.address=a}
+state.checkout.step=step+1;render()}
+function placeOrder(){const buy=state.checkout.buyNow;const items=buy?[{p:getProduct(buy.id),qty:buy.qty}]:cartItems().map(x=>({p:x.p,qty:x.qty}));if(!items.length)return;const t=buy?(()=>{let sub=items.reduce((a,x)=>a+x.p.price*x.qty,0);return{sub,total:sub+(sub>=2999?0:149),delivery:sub>=2999?0:149}})():totals();const order={id:"DS"+Date.now().toString().slice(-8),date:new Date().toISOString(),items:items.map(x=>({id:x.p.id,name:x.p.name,qty:x.qty,price:x.p.price,img:x.p.img})),total:t.total,address:state.checkout.address,customer:state.checkout.customer,payment:state.checkout.payment,delivery:state.checkout.delivery,status:"Order Confirmed",timeline:["Order Confirmed"],returnStatus:null};state.orders.unshift(order);if(!buy)state.cart=[];state.checkout.buyNow=null;state.checkout.step=1;save();updateBadges();go("order",order.id);toast("Order placed successfully")}
+function orders(){return `<div class="container page"><h1>My Orders</h1>${state.orders.length?state.orders.map(o=>orderCard(o)).join(""):`<div class="detail-box"><p class="muted">No orders yet.</p><button class="btn primary" onclick="go('shop')">SHOP NOW</button></div>`}</div>`}
+function orderCard(o){return `<div class="order"><div style="display:flex;justify-content:space-between;gap:10px"><div><b>${o.id}</b><div class="muted">${new Date(o.date).toLocaleString()}</div></div><b>${money(o.total)}</b></div><p>${o.items.map(x=>`${x.name} ×${x.qty}`).join(" • ")}</p><div class="statusbar">${["Order Confirmed","Processing","Packed","Shipped","Out for Delivery"].map((s,i)=>`<div class="${statusIndex(o.status)>=i?"done":""}">${s}</div>`).join("")}</div><div class="actions"><button class="btn small" onclick="go('order','${o.id}')">View / Track</button><button class="btn small" onclick="cancelOrder('${o.id}')">Cancel</button><button class="btn small" onclick="returnOrder('${o.id}')">Return</button></div></div>`}
+function statusIndex(s){return ["Order Confirmed","Processing","Packed","Shipped","Out for Delivery","Delivered"].indexOf(s)}
+function orderPage(id){const o=state.orders.find(x=>x.id===id);if(!o)return orders();return `<div class="container page"><button class="btn small" onclick="go('orders')">← My Orders</button><div class="order" style="margin-top:12px"><h1>${o.id}</h1><p class="muted">${new Date(o.date).toLocaleString()}</p><div class="statusbar">${["Order Confirmed","Processing","Packed","Shipped","Out for Delivery"].map((s,i)=>`<div class="${statusIndex(o.status)>=i?"done":""}">${s}</div>`).join("")}</div>${o.items.map(x=>`<div class="cart-row"><img src="${x.img}" onerror="imgFallback(event,'${x.name}')"><div><b>${x.name}</b><p>Quantity: ${x.qty}</p></div><b>${money(x.price*x.qty)}</b></div>`).join("")}<div class="detail-box"><b>Delivery</b><p class="muted">${Object.values(o.address).join(", ")}</p><b>Payment</b><p>${o.payment}</p><b>Estimated delivery</b><p>${o.delivery==="Express Delivery"?"1–3":"3–7"} business days</p></div><div class="actions"><button class="btn" onclick="cancelOrder('${o.id}')">Cancel Order</button><button class="btn" onclick="returnOrder('${o.id}')">Return Product</button></div></div></div>`}
+function cancelOrder(id){const o=state.orders.find(x=>x.id===id);if(!o)return;if(["Shipped","Out for Delivery","Delivered"].includes(o.status))return toast("This order cannot be cancelled at this stage");o.status="Cancelled";o.timeline.push("Cancelled");save();render();toast("Order cancelled")}
+function returnOrder(id){const o=state.orders.find(x=>x.id===id);if(!o)return;openModal(`<div class="modal-head"><h2>Return / Replacement</h2><button class="close" onclick="closeModal()">×</button></div><div class="form"><select id="retProduct">${o.items.map(x=>`<option>${x.name}</option>`).join("")}</select><select id="retReason"><option>Damaged product</option><option>Wrong product</option><option>Size issue</option><option>Changed my mind</option></select><select id="retType"><option>Return</option><option>Replacement</option><option>Exchange</option></select><input id="retPhoto" type="file" accept="image/*"><button class="btn primary" onclick="submitReturn('${id}')">Submit Request</button></div>`)}
+function submitReturn(id){const o=state.orders.find(x=>x.id===id);o.returnStatus={product:document.getElementById("retProduct").value,reason:document.getElementById("retReason").value,type:document.getElementById("retType").value,status:"Request Submitted"};save();closeModal();render();toast("Return request submitted")}
+function account(){return `<div class="container page"><h1>Account</h1><div class="account-grid"><aside class="side-menu">${["Profile","Orders","Wishlist","Addresses","Payment Methods","Reviews","Returns","Coupons","Notifications","Settings"].map((x,i)=>`<button onclick="accountAction('${x}')">${x}</button>`).join("")}<button onclick="logout()">Logout</button></aside><section><div class="detail-box"><h2>Welcome to Dragon Sports</h2><p class="muted">Manage your profile, orders, wishlist, addresses, reviews and preferences.</p><div class="admin-stat"><div class="stat">Orders<b>${state.orders.length}</b></div><div class="stat">Wishlist<b>${state.wish.length}</b></div><div class="stat">Recent views<b>${state.recent.length}</b></div><div class="stat">Coupons<b>3</b></div></div></div><div class="detail-box"><h3>Quick actions</h3><div class="actions"><button class="btn" onclick="go('orders')">My Orders</button><button class="btn" onclick="go('wishlist')">Wishlist</button><button class="btn" onclick="go('care')">Customer Care</button><button class="btn" onclick="go('admin')">Admin Demo</button></div></div></section></div></div>`}
+function accountAction(x){if(x==="Orders")go("orders");else if(x==="Wishlist")go("wishlist");else if(x==="Coupons")go("offers");else if(x==="Reviews")toast("Your submitted reviews are stored locally in this demo");else if(x==="Returns")go("orders");else toast(x+" section is ready for API-backed account integration")}
+function logout(){toast("Demo logout complete")}
+function forYou(){const recent=state.recent.map(getProduct).filter(Boolean),w=state.wish.map(getProduct).filter(Boolean),fallback=[...products].sort((a,b)=>b.rating-a.rating);return `<div class="container page"><h1>For You</h1><p class="muted">Recommendations use recent views, wishlist, cart and popular products stored on this device.</p>${recent.length?section("Recently Viewed",recent,"go('shop')"):""}${w.length?section("From Your Wishlist",w,"go('wishlist')"):""}${section(recent.length||w.length?"Popular for You":"Trending Products",fallback,"go('shop')")}</div>`}
+function care(){return `<div class="container page"><h1>Customer Care</h1><div class="detail-box"><h2>We’re here to help</h2><p class="muted">Phone: 93451 11332 • 99556 64466</p><div class="actions"><a class="btn primary" href="tel:+919345111332">CALL NOW</a><a class="btn green" target="_blank" href="https://wa.me/919345111332?text=Hello%20Dragon%20Sports">WHATSAPP</a><button class="btn" onclick="openChat()">LIVE CHAT</button><button class="btn" onclick="go('faq')">FAQ</button></div></div><div class="section"><h2>FAQ</h2><div class="category-grid">${["Orders","Payment","Delivery","Returns","Products","Account"].map(x=>`<button class="category" onclick="faq('${x}')"><b>${x}</b><small>View answers →</small></button>`).join("")}</div></div></div>`}
+function openChat(){openModal(`<div class="modal-head"><h2>Live Chat</h2><button class="close" onclick="closeModal()">×</button></div><p class="muted">Demo chat is available locally. Connect your preferred chat provider at /api/chat.</p><div id="chatBox" class="detail-box">Dragon Sports: Hi! How can we help?</div><div class="searchbox"><input id="chatInput" placeholder="Type a message"><button onclick="sendChat()">Send</button></div>`)}
+function sendChat(){const x=document.getElementById("chatInput").value.trim();if(!x)return;document.getElementById("chatBox").innerHTML+=`<p><b>You:</b> ${x}</p><p><b>Dragon Sports:</b> Thanks! Our support team will assist with your query.</p>`;document.getElementById("chatInput").value=""}
+function faq(c){openModal(`<div class="modal-head"><h2>${c} FAQ</h2><button class="close" onclick="closeModal()">×</button></div><p class="muted">Demo FAQ content: please connect this section to your CMS/help-center API for live policies.</p><ul><li>How do I track an order?</li><li>How do I request a return?</li><li>Which payment methods are supported?</li><li>How can I contact customer care?</li></ul>`)}
+function about(){return `<div class="container page"><div class="hero" style="min-height:310px"><div class="hero-content"><div class="eyebrow">ABOUT DRAGON SPORTS</div><h1>UNLEASH YOUR GAME</h1><p>Dragon Sports is a sports shopping concept based in Kodumudi, Erode, Tamil Nadu, India.</p></div></div><div class="section"><div class="grid">${["Our Mission","Our Story","Why Choose Us","Quality Products","Customer Support","Fast Delivery"].map(x=>`<div class="detail-box"><h3>${x}</h3><p class="muted">Performance-focused sports retail with a clean, customer-first shopping experience.</p></div>`).join("")}</div></div><div class="detail-box"><b>Address</b><p>Kodumudi, Erode, Tamil Nadu, India</p><p>93451 11332 • 99556 64466</p></div></div>`}
+function footer(){return `<footer class="container" style="border-top:1px solid #292929;padding:30px 0 110px;margin-top:35px"><div class="grid"><div><h3>Dragon Sports</h3><p class="muted">UNLEASH YOUR GAME</p></div><div><b>Shop</b><p><button class="navlink" onclick="go('sports')">Sports</button></p><p><button class="navlink" onclick="go('offers')">Offers</button></p></div><div><b>Help</b><p><button class="navlink" onclick="go('care')">Customer Care</button></p><p><button class="navlink" onclick="go('orders')">Shipping & Returns</button></p></div><div><b>Company</b><p><button class="navlink" onclick="go('about')">About</button></p><p><button class="navlink" onclick="go('terms')">Privacy / Terms</button></p></div></div><div class="muted" style="margin-top:22px">© 2026 Dragon Sports • Demo storefront</div></footer>`}
+function admin(){const rev=state.orders.reduce((a,o)=>a+o.total,0);return `<div class="container page"><div class="section-head"><div><h1>Admin Dashboard</h1><p class="muted">Local demo management console. Replace repositories with authenticated APIs for production.</p></div><button class="btn primary" onclick="adminAdd()">Add Product</button></div><div class="admin-stat"><div class="stat">Total Products<b>${products.length}</b></div><div class="stat">Total Orders<b>${state.orders.length}</b></div><div class="stat">Total Customers<b>${state.orders.length?1:0}</b></div><div class="stat">Revenue<b>${money(rev)}</b></div><div class="stat">Pending Orders<b>${state.orders.filter(o=>o.status!=="Delivered"&&o.status!=="Cancelled").length}</b></div><div class="stat">Low Stock<b>${products.filter(p=>p.stock<8).length}</b></div><div class="stat">Returns<b>${state.orders.filter(o=>o.returnStatus).length}</b></div><div class="stat">Coupons<b>3</b></div></div><section class="section"><h2>Orders</h2><div class="tablewrap"><table class="table"><tr><th>Order</th><th>Total</th><th>Status</th><th>Update</th><th>Return</th></tr>${state.orders.map(o=>`<tr><td>${o.id}</td><td>${money(o.total)}</td><td>${o.status}</td><td><select onchange="adminStatus('${o.id}',this.value)">${["Order Confirmed","Processing","Packed","Shipped","Out for Delivery","Delivered","Cancelled"].map(s=>`<option ${o.status===s?"selected":""}>${s}</option>`).join("")}</select></td><td>${o.returnStatus?o.returnStatus.status:"—"}</td></tr>`).join("")}</table></div></section><section class="section"><h2>Product Management</h2><div class="tablewrap"><table class="table"><tr><th>ID</th><th>Product</th><th>Price</th><th>Stock</th><th>Action</th></tr>${products.slice(0,20).map(p=>`<tr><td>${p.id}</td><td>${p.name}</td><td>${money(p.price)}</td><td>${p.stock}</td><td><button class="btn small" onclick="adminEdit('${p.id}')">Edit</button></td></tr>`).join("")}</table></div></section></div>`}
+function adminStatus(id,s){const o=state.orders.find(x=>x.id===id);if(o){o.status=s;o.timeline.push(s);save();toast("Order status updated")}}
+function adminEdit(id){const p=getProduct(id);openModal(`<div class="modal-head"><h2>Edit Product</h2><button class="close" onclick="closeModal()">×</button></div><div class="form"><input id="epname" value="${p.name}"><input id="epprice" type="number" value="${p.price}"><input id="epmrp" type="number" value="${p.mrp}"><input id="epstock" type="number" value="${p.stock}"><input id="epimg" value="${p.img}"><button class="btn primary" onclick="saveProduct('${id}')">Save</button></div>`)}
+function saveProduct(id){const p=getProduct(id);p.name=document.getElementById("epname").value;p.price=+document.getElementById("epprice").value;p.mrp=+document.getElementById("epmrp").value;p.stock=+document.getElementById("epstock").value;p.img=document.getElementById("epimg").value;p.discount=Math.round((1-p.price/p.mrp)*100);closeModal();render();toast("Product updated locally")}
+function adminAdd(){openModal(`<div class="modal-head"><h2>Add Product</h2><button class="close" onclick="closeModal()">×</button></div><p class="muted">This demo form explains the integration structure; product persistence should use a server/API in production.</p><div class="form"><input placeholder="Product name"><input placeholder="Brand"><input type="number" placeholder="Price"><input type="number" placeholder="MRP"><input placeholder="Image URL"><button class="btn primary" onclick="closeModal();toast('Connect POST /api/products to enable persistent admin creation')">Create</button></div>`)}
+function terms(){return `<div class="container page"><h1>Policies</h1><div class="detail-box"><h3>Privacy Policy</h3><p class="muted">This frontend demo stores cart, wishlist and demo orders in browser localStorage. A production deployment should replace this with secure server-side storage and appropriate privacy controls.</p><h3>Terms</h3><p class="muted">Product prices, inventory, delivery estimates and payments shown here are demo data unless connected to live commerce services.</p></div></div>`}
+function modal(x){document.getElementById("modal").innerHTML=`<div class="modal-card">${x}</div>`;document.getElementById("modal").classList.remove("hidden")}
+function openModal(x){modal(x)}function closeModal(){stopScanner();document.getElementById("modal").classList.add("hidden");document.getElementById("modal").innerHTML=""}
+const translations={
+English:{premium:"PREMIUM SPORTS STORE",shopNow:"SHOP NOW",exploreSports:"EXPLORE SPORTS"},
+Tamil:{premium:"பிரீமியம் ஸ்போர்ட்ஸ் ஸ்டோர்",shopNow:"இப்போது வாங்குங்கள்",exploreSports:"விளையாட்டுகளைப் பாருங்கள்"},
+Hindi:{premium:"प्रीमियम स्पोर्ट्स स्टोर",shopNow:"अभी खरीदें",exploreSports:"स्पोर्ट्स देखें"},
+Malayalam:{premium:"പ്രീമിയം സ്പോർട്സ് സ്റ്റോർ",shopNow:"ഇപ്പോൾ വാങ്ങുക",exploreSports:"സ്പോർട്സ് കാണുക"},
+Telugu:{premium:"ప్రీమియం స్పోర్ట్స్ స్టోర్",shopNow:"ఇప్పుడే కొనండి",exploreSports:"స్పోర్ట్స్ చూడండి"},
+Kannada:{premium:"ಪ್ರೀಮಿಯಂ ಸ್ಪೋರ್ಟ್ಸ್ ಸ್ಟೋರ್",shopNow:"ಈಗ ಖರೀದಿಸಿ",exploreSports:"ಕ್ರೀಡೆಗಳನ್ನು ನೋಡಿ"},
+Bengali:{premium:"প্রিমিয়াম স্পোর্টস স্টোর",shopNow:"এখনই কিনুন",exploreSports:"স্পোর্টস দেখুন"},
+Marathi:{premium:"प्रीमियम स्पोर्ट्स स्टोअर",shopNow:"आता खरेदी करा",exploreSports:"स्पोर्ट्स पहा"},
+Arabic:{premium:"متجر رياضي مميز",shopNow:"تسوق الآن",exploreSports:"استكشف الرياضات"},
+French:{premium:"BOUTIQUE SPORT PREMIUM",shopNow:"ACHETER",exploreSports:"EXPLORER LES SPORTS"},
+Spanish:{premium:"TIENDA DEPORTIVA PREMIUM",shopNow:"COMPRAR AHORA",exploreSports:"EXPLORAR DEPORTES"},
+German:{premium:"PREMIUM SPORTGESCHÄFT",shopNow:"JETZT KAUFEN",exploreSports:"SPORT ENTDECKEN"},
+Japanese:{premium:"プレミアムスポーツストア",shopNow:"今すぐ購入",exploreSports:"スポーツを見る"},
+Chinese:{premium:"高端运动商店",shopNow:"立即购买",exploreSports:"探索运动"}
+};
+function t(k){return (translations[state.lang]||translations.English)[k]||translations.English[k]||k}
+function setLang(l){state.lang=l;localStorage.setItem("ds_lang",l);const map={English:"en",Tamil:"ta",Hindi:"hi",Malayalam:"ml",Telugu:"te",Kannada:"kn",Bengali:"bn",Marathi:"mr",Arabic:"ar",French:"fr",Spanish:"es",German:"de",Japanese:"ja",Chinese:"zh"};document.documentElement.lang=map[l]||"en";render();toast("Language changed to "+l)}
+function toggleMobileMenu(force){const el=document.getElementById("mobileMenu");if(!el)return;const open=typeof force==="boolean"?force:el.classList.contains("hidden");el.classList.toggle("hidden",!open);el.setAttribute("aria-hidden",String(!open));const b=document.querySelector(".mobile-menu-btn");if(b)b.setAttribute("aria-expanded",String(open))}
+function mobileGo(page,param){toggleMobileMenu(false);go(page,param)}
+function render(){updateBadges();let content=state.page==="home"?home():state.page==="shop"?shop():state.page==="sports"?sports():state.page==="dresses"?dresses():state.page==="nutrition"?nutrition():state.page==="gym"?gym():state.page==="offers"?offers():state.page==="product"?productPage(state.param):state.page==="cart"?cart():state.page==="wishlist"?wishlist():state.page==="checkout"?checkout():state.page==="orders"?orders():state.page==="order"?orderPage(state.param):state.page==="account"?account():state.page==="foryou"?forYou():state.page==="care"?care():state.page==="about"?about():state.page==="admin"?admin():terms();document.getElementById("app").innerHTML=content+footer();document.getElementById("lang").value=state.lang}
+document.documentElement.lang=({English:"en",Tamil:"ta",Hindi:"hi",Malayalam:"ml",Telugu:"te",Kannada:"kn",Bengali:"bn",Marathi:"mr",Arabic:"ar",French:"fr",Spanish:"es",German:"de",Japanese:"ja",Chinese:"zh"}[state.lang]||"en");
+render();
+</script>
+</body>
+</html>
