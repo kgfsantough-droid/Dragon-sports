@@ -1,0 +1,7 @@
+div>
+
+            <!-- Game 3 -->
+            <div class="game-card">
+                <img src="dragon-logo.png" alt="பேட்மிட்டன்" class="game-logo">
+                <h3 class="game-title">பேட்மிட்டன்</h3>
+            </div
